@@ -10,12 +10,24 @@ const VideoReducer = createSlice({
   initialState,
 
   reducers: {
+    // append new videos
     setvideoes: (state, action) => {
-      state.value = action.payload;
+      state.value = [
+        ...state.value,
+        ...action.payload,
+      ];
+    },
+
+    // clear old videos
+    clearvideoes: (state) => {
+      state.value = [];
     },
   },
 });
 
-export const { setvideoes } = VideoReducer.actions;
+export const {
+  setvideoes,
+  clearvideoes,
+} = VideoReducer.actions;
 
 export default VideoReducer.reducer;

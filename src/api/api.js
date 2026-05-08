@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-async function getPhotos(query, page = 1) {
 
+//this will fetch the photos from the unsplash
+async function getPhotos(query, page) {
+  
   try {
-
+    
     const res = await axios.get(
       "https://api.unsplash.com/search/photos",
       {
@@ -13,21 +15,24 @@ async function getPhotos(query, page = 1) {
           per_page: 20,
           client_id:
             import.meta.env.VITE_UNSPLASHKEY,
-        },
+          },
       }
     );
 
     return res.data.results;
-
+    
   } catch (error) {
-
+    
     console.log(error);
-
+    
     return [];
   }
 }
 
-async function getVideos(query) {
+
+
+//this will fetch the videos from the pexels
+async function getVideos(query,page) {
   try {
     const res = await axios.get(
       "https://api.pexels.com/videos/search",
@@ -35,6 +40,7 @@ async function getVideos(query) {
         params: {
           query: query,
           per_page: 20,
+          page
         },
         headers: {
           Authorization: import.meta.env.VITE_PEXELSKEY,
@@ -42,7 +48,7 @@ async function getVideos(query) {
       }
     );
 
-    // console.log(res.data);
+    console.log(res.data.videos);
 
     return res.data.videos;
   } catch (error) {

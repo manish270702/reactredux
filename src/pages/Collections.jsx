@@ -14,7 +14,7 @@ function Collections() {
 
   // ✅ Redux state
   const saved = useSelector(
-    (state) => state.collection.value
+    (state) => state.Collection.value
   );
 
   // ✅ Load localStorage once
@@ -30,10 +30,14 @@ function Collections() {
       setcollection([
         ...savedPhotos,
         ...savedVideos,
+
       ])
     );
 
+
   }, []);
+
+  console.log(saved[5]);
 
   return (
 

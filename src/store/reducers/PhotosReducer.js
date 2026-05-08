@@ -4,18 +4,26 @@ const initialState = {
   value: [],
 };
 
-const PhotoReducer = createSlice({
-  name: "Photoes",
+const PhotosReducer = createSlice({
+  name: "photos",
 
   initialState,
 
   reducers: {
     setPhotoes: (state, action) => {
-      state.value = action.payload;
+      state.value = [
+        ...state.value,
+        ...action.payload,
+      ];
+    },
+
+    clearPhotos: (state) => {
+      state.value = [];
     },
   },
 });
 
-export const { setPhotoes } = PhotoReducer.actions;
+export const { setPhotoes, clearPhotos } =
+  PhotosReducer.actions;
 
-export default PhotoReducer.reducer;
+export default PhotosReducer.reducer;
