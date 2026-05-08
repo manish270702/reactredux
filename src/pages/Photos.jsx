@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { getPhotos } from "../api/api";
@@ -8,14 +9,17 @@ import {
   clearPhotos,
 } from "../store/reducers/PhotosReducer";
 
+
 function Photos() {
   const dispatch = useDispatch();
 
   const query = useSelector((state) => state.Query.value);
 
+
   const results = useSelector(
     (state) => state.Photoes.value
   );
+
 
   const [page, setpage] = useState(1);
 
@@ -80,6 +84,7 @@ function Photos() {
     }
   };
 
+
   return (
     <InfiniteScroll
       dataLength={results.length}
@@ -109,6 +114,7 @@ function Photos() {
                 alt={photo.slug}
               />
 
+
               <button
                 onClick={() =>
                   saveToLocal(
@@ -133,6 +139,8 @@ function Photos() {
         )}
       </div>
     </InfiniteScroll>
+
+
   );
 }
 

@@ -41,6 +41,7 @@ async function getVideos(query,page) {
           query: query,
           per_page: 20,
           page
+
         },
         headers: {
           Authorization: import.meta.env.VITE_PEXELSKEY,

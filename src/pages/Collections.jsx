@@ -50,7 +50,7 @@ function Collections() {
         Back
       </button>
 
-      <h2 className="text-center text-2xl mb-5">
+      <h2 classzName="text-center text-2xl mb-5">
         Collections
       </h2>
 
